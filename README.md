@@ -1,10 +1,5 @@
 # Yet another anime game launcher (Yaagl)
 
-## Current Supported Game Version:
-### GI: 5.3.0+ OS/CN **
-### HSR: 4.3.0+ OS/CN
-### ZZZ: 3.0.0+ OS/CN
-
 #### **: Starting from release 0.3.12 using DXMT 0.74, you need to update to Sequoia or later. Sonoma is getting old and is lacking technical features to improve the translation.
 
 ## For Linux users
@@ -40,7 +35,7 @@ Use it at your own risk. Or enjoying it with a new f2p account.
 
 ## Install
 
-- Go to [Release](https://github.com/3Shain/yet-another-anime-game-launcher/releases/latest) and download the latest version.
+- Go to [Release](https://github.com/crocchetto/yet-another-anime-game-launcher/releases/latest) and download the latest version.
 
 - Uncompress and copy the resulting application to your `/Applications` folder. (Do not open the application from Downloads folder).
 
@@ -77,7 +72,7 @@ node ./build-app.js
    ```sh
    open ~/Library/Application\ Support/
    ```
-   From there, locate and delete the `Yaagl` folder (or `Yaagl OS` if you are using overseas/global version). (For HSR and ZZZ the name of folder is slightly different)
+   From there, locate and delete the `Yaagl Generic` folder
 
 ## Related projects
 

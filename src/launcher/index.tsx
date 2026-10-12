@@ -48,6 +48,7 @@ export async function createLauncher({
     installDir,
     installState,
     supportsD3d12,
+    installButtonText,
     showPredownloadPrompt,
     updateRequired,
     install,
@@ -68,6 +69,7 @@ export async function createLauncher({
     dismissPredownload,
     predownloadVersion,
     createConfig,
+    createProfileConfig,
   },
   onCheckUpdate,
 }: {
@@ -82,6 +84,7 @@ export async function createLauncher({
     locale,
     gameInstallDir: installDir,
     configForChannelClient: createConfig,
+    profileConfigForChannelClient: createProfileConfig,
     supportsD3d12,
     onCheckUpdate,
   });
@@ -261,7 +264,7 @@ export async function createLauncher({
                       ? updateRequired()
                         ? locale.get("UPDATE")
                         : locale.get("LAUNCH")
-                      : locale.get("INSTALL")}
+                      : locale.get(installButtonText ?? "INSTALL")}
                   </Button>
                   <IconButton
                     onClick={onOpen}

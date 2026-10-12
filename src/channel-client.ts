@@ -1,7 +1,7 @@
 import { JSXElement } from "solid-js";
 import { CommonUpdateProgram } from "./common-update-ui";
 import { Config } from "./config";
-import { Locale } from "./locale";
+import { Locale, LocaleTextKey } from "./locale";
 
 export type ChannelClientInstallState = "INSTALLED" | "NOT_INSTALLED";
 
@@ -10,6 +10,7 @@ export interface ChannelClient {
   installDir: () => string;
   /** Enables the shared DX12 toggle only when this client supports DX12 launch. */
   supportsD3d12?: boolean;
+  installButtonText?: LocaleTextKey;
 
   showPredownloadPrompt: () => boolean;
   updateRequired: () => boolean;
@@ -34,6 +35,11 @@ export interface ChannelClient {
   checkIntegrity(): CommonUpdateProgram;
   init(config: Config): CommonUpdateProgram;
   createConfig(
+    locale: Locale,
+    config: Partial<Config>
+  ): Promise<() => JSXElement>;
+  /** Extra Profile tab */
+  createProfileConfig?(
     locale: Locale,
     config: Partial<Config>
   ): Promise<() => JSXElement>;

@@ -1,7 +1,7 @@
 import { Aria2 } from "./aria2";
 import { Github, GithubReleaseInfo } from "./github";
 import { gt } from "semver";
-import { CURRENT_YAAGL_VERSION } from "./constants";
+import { CURRENT_YAAGL_VERSION, YAAGL_GENERIC_INSTANCE } from "./constants";
 import {
   env,
   forceMove,
@@ -14,7 +14,8 @@ import {
 } from "./utils";
 import { CommonUpdateProgram } from "./common-update-ui";
 
-const owner = "3shain";
+// I'll try to keep the generic updated
+const owner = "crocchetto";
 const repo = "yet-another-anime-game-launcher";
 
 export async function createUpdater(deps: { github: Github; aria2: Aria2 }) {
@@ -25,7 +26,9 @@ export async function createUpdater(deps: { github: Github; aria2: Aria2 }) {
   }
   try {
     let updateVersion = "";
-    if (
+    if (import.meta.env["YAAGL_CHANNEL_CLIENT"] == "generic") {
+      updateVersion = `generic${YAAGL_GENERIC_INSTANCE || ""}`;
+    } else if (
       import.meta.env["YAAGL_CHANNEL_CLIENT"] &&
       import.meta.env["YAAGL_CHANNEL_CLIENT"] != "hk4euniversal"
     ) {
@@ -65,6 +68,12 @@ export async function createUpdater(deps: { github: Github; aria2: Aria2 }) {
       case "napos":
         appBundleName = "Yaagl.ZZZ.OS.app.tar.gz";
         break;
+      default:
+        if (updateVersion.startsWith("generic")) {
+          appBundleName = `Yaagl.Generic${
+            YAAGL_GENERIC_INSTANCE ? "." + YAAGL_GENERIC_INSTANCE : ""
+          }.app.tar.gz`;
+        }
     }
     const sidecar = latest.assets.find(x => x.name == appBundleName);
 
@@ -119,6 +128,9 @@ export async function* downloadProgram(
     if (topLevelDir === "Yaagl.HSR.OS.app") topLevelDir = "Yaagl HSR OS.app";
     if (topLevelDir === "Yaagl.ZZZ.app") topLevelDir = "Yaagl ZZZ.app";
     if (topLevelDir === "Yaagl.ZZZ.OS.app") topLevelDir = "Yaagl ZZZ OS.app";
+    const generic = /^Yaagl\.Generic(?:\.(\d+))?\.app$/.exec(topLevelDir);
+    if (generic)
+      topLevelDir = `Yaagl Generic${generic[1] ? " " + generic[1] : ""}.app`;
 
     await tar_extract_directory(
       "./sidecar.tar.gz",

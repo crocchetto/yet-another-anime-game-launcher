@@ -84,6 +84,7 @@ export async function createConfiguration({
   locale,
   gameInstallDir,
   configForChannelClient,
+  profileConfigForChannelClient,
   supportsD3d12 = false,
   onCheckUpdate,
 }: {
@@ -91,6 +92,10 @@ export async function createConfiguration({
   locale: Locale;
   gameInstallDir: () => string;
   configForChannelClient: (
+    locale: Locale,
+    config: Partial<Config>
+  ) => Promise<() => JSXElement>;
+  profileConfigForChannelClient?: (
     locale: Locale,
     config: Partial<Config>
   ) => Promise<() => JSXElement>;
@@ -120,6 +125,9 @@ export async function createConfiguration({
   const [PRH] = await createProxyHostConfig({ locale, config });
 
   const ChannelClientConfig = await configForChannelClient(locale, config);
+  const ProfileConfig = profileConfigForChannelClient
+    ? await profileConfigForChannelClient(locale, config)
+    : undefined;
 
   const _advancedSetting =
     YAAGL_ADVANCED_ENABLE &&
@@ -262,7 +270,8 @@ export async function createConfiguration({
 
                 if (
                   channelClient.startsWith("hk4e") ||
-                  channelClient.startsWith("nap")
+                  channelClient.startsWith("nap") ||
+                  channelClient == "generic"
                 ) {
                   await setKey("config_steam_patch", "true");
                   await setKey("config_timeout_fix", "true");
@@ -384,6 +393,9 @@ export async function createConfiguration({
 
                   <Tab {...tabStyle}>{locale.get("SETTING_GENERAL")}</Tab>
                   <Tab {...tabStyle}>{locale.get("SETTING_GAME")}</Tab>
+                  <Show when={ProfileConfig}>
+                    <Tab {...tabStyle}>{locale.get("SETTING_PROFILE")}</Tab>
+                  </Show>
                   <Tab {...tabStyle}>Wine</Tab>
                   <Show when={advanceSetting()}>
                     <Tab {...tabStyle}>{locale.get("SETTING_ADVANCED")}</Tab>
@@ -484,6 +496,22 @@ export async function createConfiguration({
                     <QuickActionsPanel />
                   </HStack>
                 </TabPanel>
+
+                {/* Profile Tab */}
+                <Show when={ProfileConfig}>
+                  {Profile => (
+                    <TabPanel flex={1} p={0} h="100%" bg="$neutral1">
+                      <HStack spacing={0} h="100%" alignItems="flex-start">
+                        <Box flex={1} h="100%" overflowY="auto" p="$8">
+                          <Box {...cardStyle} maxW="650px">
+                            {Profile()()}
+                          </Box>
+                        </Box>
+                        <QuickActionsPanel />
+                      </HStack>
+                    </TabPanel>
+                  )}
+                </Show>
 
                 {/* Wine Tab */}
                 <TabPanel flex={1} p={0} h="100%" bg="$neutral1">

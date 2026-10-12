@@ -65,6 +65,17 @@ const { IconIcns } = require("@shockpkg/icon-encoder");
       appDistributionName = config.cli.binaryName + " ZZZ";
       config.modes.window.icon = "/src/icons/ZZZ_Bang.cr.png";
       break;
+    case "generic": {
+      const instance = process.env["YAAGL_GENERIC_INSTANCE"] ?? "";
+      // 12 max instances because could go against already assigned ports
+      if (instance && !/^([1-9]|1[0-2])$/.test(instance)) {
+        throw new Error("YAAGL_GENERIC_INSTANCE must be a number from 1 to 12");
+      }
+      bundleId = config.applicationId + ".generic" + instance;
+      appDistributionName =
+        config.cli.binaryName + " Generic" + (instance ? " " + instance : "");
+      break;
+    }
     default:
       throw new Error("YAAGL_CHANNEL_CLIENT env required");
   }

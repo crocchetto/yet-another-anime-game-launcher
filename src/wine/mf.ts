@@ -12,7 +12,7 @@ import {
 import { join } from "path-browserify";
 import { Wine } from "./wine";
 
-const MF_DLLS = [
+export const MF_DLLS = [
   "colorcnv",
   "mf",
   "mferror",

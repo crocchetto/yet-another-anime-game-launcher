@@ -147,4 +147,36 @@ export const ja_JP: typeof zh_CN = {
   SETTING_UNINSTALL_YAAGL: "Yaaglを完全にアンインストール",
   SETTING_UNINSTALL_YAAGL_DESC:
     "Yaaglを完全にアンインストールしてもよろしいですか？これにより、すべての設定、Wine プレフィックス、およびデータが削除されます。ゲームファイルは削除されません。Yaaglは直ちに終了します。後でアプリケーションフォルダから Yaagl.app を手動で削除することを忘れないでください。",
+  GAME_NOT_FOUND: "ゲームが見つかりません",
+  GAME_NOT_FOUND_DESC:
+    "次のフォルダに、対応する *_Data フォルダを持つ Windows 実行ファイルが見つかりませんでした：\n{0}",
+  GAME_EXECUTABLE: "実行ファイル",
+  SELECT_GAME: "ゲームを選択",
+  SETTING_PROFILE: "プロファイル",
+  SETTING_PROFILE_IMPORT: "プロファイルをインポート",
+  SETTING_PROFILE_EXPORT: "プロファイルをエクスポート",
+  SETTING_PROFILE_IMPORTED: "プロファイルをインポートしました",
+  SETTING_PROFILE_EXPORTED: "プロファイルをエクスポートしました",
+  SETTING_PROFILE_EXPORT_FAILED: "エクスポートに失敗しました",
+  SETTING_PROFILE_EXPORT_FAILED_DESC:
+    "プロファイルを保存できませんでした：\n{0}",
+  SETTING_PROFILE_IMPORT_FAILED: "インポートに失敗しました",
+  SETTING_PROFILE_IMPORT_FAILED_DESC:
+    "このファイルは有効なプロファイルではありません：\n{0}",
+  SETTING_PROFILE_AUTO: "自動",
+  SETTING_PROFILE_EXECUTABLE: "ゲームの実行ファイル",
+  SETTING_PROFILE_DATA_DIR: "データフォルダ（*_Data）",
+  SETTING_PROFILE_LAUNCH_ARGS: "起動引数",
+  SETTING_PROFILE_JADEITE: "jadeite 経由で起動",
+  SETTING_PROFILE_MEDIA_FOUNDATION: "Media Foundation（ゲーム内動画）",
+  SETTING_PROFILE_BLOCK_NET_HOST: "起動修正：ブロックするドメイン",
+  SETTING_PROFILE_BLOCK_NET_SECONDS: "起動修正：ブロック解除までの秒数",
+  SETTING_PROFILE_BACKGROUND_URL: "背景 API の URL",
+  SETTING_PROFILE_BACKGROUND_BIZ: "背景のゲーム ID（biz）",
+  SETTING_PROFILE_BACKGROUND_VIDEO: "動画の背景を使用",
+  SETTING_PROFILE_RELAUNCH_DESC:
+    "背景の変更は次回ランチャー起動時に反映されます。",
+  SETTING_PROFILE_SYNC: "同期方式（DXMT）",
+  SETTING_PROFILE_DXMT_CONFIG: "DXMT 設定（DXMT_CONFIG）",
+  SETTING_PROFILE_REGISTRY_KEY: "Unity レジストリキー",
 };

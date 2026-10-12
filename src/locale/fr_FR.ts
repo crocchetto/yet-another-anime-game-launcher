@@ -150,4 +150,36 @@ export const fr_FR: typeof zh_CN = {
   SETTING_UNINSTALL_YAAGL: "Désinstaller complètement Yaagl",
   SETTING_UNINSTALL_YAAGL_DESC:
     "Êtes-vous sûr de vouloir désinstaller complètement Yaagl ? Cela supprimera toute la configuration, les préfixes Wine et les données. Vos fichiers de jeu NE SERONT PAS supprimés. Yaagl se fermera immédiatement. N'oubliez pas de supprimer manuellement l'application Yaagl.app de votre dossier Applications par la suite.",
+  GAME_NOT_FOUND: "Jeu introuvable",
+  GAME_NOT_FOUND_DESC:
+    "Aucun exécutable Windows avec un dossier *_Data correspondant n'a été trouvé dans :\n{0}",
+  GAME_EXECUTABLE: "Exécutable",
+  SELECT_GAME: "Sélectionner le jeu",
+  SETTING_PROFILE: "Profil",
+  SETTING_PROFILE_IMPORT: "Importer un profil",
+  SETTING_PROFILE_EXPORT: "Exporter le profil",
+  SETTING_PROFILE_IMPORTED: "Profil importé",
+  SETTING_PROFILE_EXPORTED: "Profil exporté",
+  SETTING_PROFILE_EXPORT_FAILED: "Échec de l'exportation",
+  SETTING_PROFILE_EXPORT_FAILED_DESC:
+    "Impossible d'enregistrer le profil :\n{0}",
+  SETTING_PROFILE_IMPORT_FAILED: "Échec de l'importation",
+  SETTING_PROFILE_IMPORT_FAILED_DESC:
+    "Le fichier n'est pas un profil valide :\n{0}",
+  SETTING_PROFILE_AUTO: "Automatique",
+  SETTING_PROFILE_EXECUTABLE: "Exécutable du jeu",
+  SETTING_PROFILE_DATA_DIR: "Dossier de données (*_Data)",
+  SETTING_PROFILE_LAUNCH_ARGS: "Arguments de lancement",
+  SETTING_PROFILE_JADEITE: "Lancer via jadeite",
+  SETTING_PROFILE_MEDIA_FOUNDATION: "Media Foundation (vidéos du jeu)",
+  SETTING_PROFILE_BLOCK_NET_HOST: "Launch Fix : domaine à bloquer",
+  SETTING_PROFILE_BLOCK_NET_SECONDS: "Launch Fix : secondes avant le déblocage",
+  SETTING_PROFILE_BACKGROUND_URL: "URL de l'API du fond",
+  SETTING_PROFILE_BACKGROUND_BIZ: "ID du jeu pour le fond (biz)",
+  SETTING_PROFILE_BACKGROUND_VIDEO: "Utiliser le fond vidéo",
+  SETTING_PROFILE_RELAUNCH_DESC:
+    "Les changements de fond prendront effet au prochain démarrage du launcher.",
+  SETTING_PROFILE_SYNC: "Synchronisation (DXMT)",
+  SETTING_PROFILE_DXMT_CONFIG: "Configuration DXMT (DXMT_CONFIG)",
+  SETTING_PROFILE_REGISTRY_KEY: "Clé de registre Unity",
 };

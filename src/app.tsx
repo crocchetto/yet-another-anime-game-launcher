@@ -27,6 +27,7 @@ import { createCommonUpdateUI } from "./common-update-ui";
 import { createLocale } from "./locale";
 import { createClient } from "./clients";
 import { createSignal, Show, JSXElement } from "solid-js";
+import { ARIA2_RPC_PORT } from "./constants";
 import type { Component } from "solid-js";
 import {
   Modal,
@@ -42,7 +43,7 @@ import {
 export async function createApp() {
   await setKey("singleton", null);
 
-  const aria2_port = 6868;
+  const aria2_port = ARIA2_RPC_PORT;
 
   await Neutralino.events.on("windowClose", async () => {
     if (await GLOBAL_onClose(false)) {
